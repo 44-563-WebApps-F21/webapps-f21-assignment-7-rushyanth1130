@@ -94,6 +94,23 @@
 
     var triesCount = 0;
     var animalLocation = 13;
+    var animalLocation = getRandomLocation(0, 23);
+    console.log(animalLocation);
+
+    function getRandomLocation(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min); 
+        }
+
+        function newGame() {
+            var clickCount = 0;
+            var animalLocation = getRandomLocation(0, 23);
+            console.log(animalLocation);
+            document.getElementById("tries").innerHTML = "Number of clicks is " + clickCount + ".";
+
+            document.getElementById("distance").innerHTML = "Distance is unknown.";
+        }
 
     function check(position) {
       id = ids[position]

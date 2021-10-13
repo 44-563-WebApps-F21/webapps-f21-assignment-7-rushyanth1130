@@ -31,20 +31,24 @@
   <script>
     myTime = undefined
 
-    function recordReact()
-    {
+    function recordReact() {
       myTime = Date.now();
-      console.log("Time is: "+ myTime)
+      console.log("Time is: " + myTime)
     }
-    
-    function startTime()
-    {
-      for(let i = 1; i<=3; i++)
-      {
-        setTimeout(function (i) 
-        {
+
+    function getRandomValue(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function startTime() {
+      var randomInt = getRandomValue(2, 10);
+      console.log(randomInt);
+      for (let i = 1; i <= 3; i++) {
+        setTimeout(function (i) {
           document.getElementById("countdown").innerHTML = i
-        }, (((3 - 1) - i) * 1000), i);
+        }, (((randomInt - 1) - i) * 1000), i);
       }
 
       setTimeout(function (i) {
@@ -58,9 +62,9 @@
           var elapsedTime = buttonTime - myTime;
           document.getElementById("target").innerHTML = "Time was " + elapsedTime;
         }
-      }, 3000)
+      }, (randomInt - 1) * 1000)
     }
-    
+
   </script>
 
 </body>
