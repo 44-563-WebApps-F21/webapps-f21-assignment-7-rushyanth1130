@@ -39,7 +39,26 @@
     
     function startTime()
     {
-      
+      for(let i = 1; i<=3; i++)
+      {
+        setTimeout(function (i) 
+        {
+          document.getElementById("countdown").innerHTML = i
+        }, (((3 - 1) - i) * 1000), i);
+      }
+
+      setTimeout(function (i) {
+        if (myTime == undefined) {
+          document.getElementById("target").innerHTML = "Too Slow"
+          document.getElementById("button2").classList.add("btn-danger");
+          document.getElementById("button2").classList.remove("btn-warning");
+        }
+        else {
+          var buttonTime = Date.now();
+          var elapsedTime = buttonTime - myTime;
+          document.getElementById("target").innerHTML = "Time was " + elapsedTime;
+        }
+      }, 3000)
     }
     
   </script>
