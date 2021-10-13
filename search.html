@@ -110,7 +110,43 @@
       document.getElementById("distance").innerHTML = "Distance is " + distance(position, animalLocation) + ".";
     }
 
-    
+    function distance(pos1, pos2)
+    {
+      var grid = [
+
+          [0,1,2,3,4,5],
+          [6,7,8,9,10,11],
+          [12,13,14,15,16,17],
+          [18,19,20,21,22,23]
+
+      ]
+
+      var x1 = 0,
+        y1 = 0,
+        x2 = 0,
+        y2 = 0;
+
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 6; j++)
+          if (grid[i][j] == pos1) {
+            x1 = i;
+            y1 = j;
+            break;
+          }
+      }
+
+      for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 6; j++)
+          if (grid[i][j] == pos2) {
+            x2 = i;
+            y2 = j;
+            break;
+          }
+      }
+
+      var distance= Math.abs(x2 - x1) + Math.abs(y2 - y1);
+      return distance;
+    }
   </script>
 
 </body>
